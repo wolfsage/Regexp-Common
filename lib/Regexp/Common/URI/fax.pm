@@ -1,18 +1,13 @@
-# $Id: fax.pm,v 2.102 2008/05/23 21:30:10 abigail Exp $
-
 package Regexp::Common::URI::fax;
-
-use strict;
-local $^W = 1;
 
 use Regexp::Common               qw /pattern clean no_defaults/;
 use Regexp::Common::URI          qw /register_uri/;
 use Regexp::Common::URI::RFC2806 qw /$fax_subscriber 
                                      $fax_subscriber_no_future/;
 
-use vars qw /$VERSION/;
+use strict;
+use warnings;
 
-($VERSION) = q $Revision: 2.102 $ =~ /[\d.]+/g;
 
 my $fax_scheme  = 'fax';
 my $fax_uri     = "(?k:(?k:$fax_scheme):(?k:$fax_subscriber))";
@@ -88,8 +83,6 @@ as a I<future extension>.
 Mockapetris, P.: I<DOMAIN NAMES - IMPLEMENTATION AND SPECIFICATION>.
 November 1987.
 
-=back
-
 =item B<[RFC 2396]>
 
 Berners-Lee, Tim, Fielding, R., and Masinter, L.: I<Uniform Resource
@@ -99,18 +92,7 @@ Identifiers (URI): Generic Syntax>. August 1998.
 
 Vaha-Sipila, A.: I<URLs for Telephone Calls>. April 2000.
 
-=head1 HISTORY
-
- $Log: fax.pm,v $
- Revision 2.102  2008/05/23 21:30:10  abigail
- Changed email address
-
- Revision 2.101  2008/05/23 21:28:02  abigail
- Changed license
-
- Revision 2.100  2003/02/10 21:06:38  abigail
- fax URI
-
+=back
 
 =head1 SEE ALSO
 
@@ -128,9 +110,9 @@ This package is maintained by Abigail S<(I<regexp-common@abigail.be>)>.
 
 Bound to be plenty.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

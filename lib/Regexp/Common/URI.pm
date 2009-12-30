@@ -1,17 +1,20 @@
-# $Id: URI.pm,v 2.110 2008/05/23 21:30:09 abigail Exp $
-
 package Regexp::Common::URI;
 
+use Regexp::Common qw /pattern clean no_defaults/;
+
 use strict;
-local $^W = 1;
+use warnings;
 
 use Exporter ();
-use vars qw /$VERSION @EXPORT_OK @ISA/;
+use vars qw /@EXPORT_OK @ISA/;
 
 @ISA       = qw /Exporter/;
 @EXPORT_OK = qw /register_uri/;
 
 use Regexp::Common qw /pattern clean no_defaults/;
+
+use strict;
+use warnings;
 
 # Use 'require' here, not 'use', so we delay running them after we are compiled.
 # We also do it using an 'eval'; this saves us from have repeated similar
@@ -21,8 +24,6 @@ foreach my $uri (@uris) {
     eval "require Regexp::Common::URI::$uri";
     die $@ if $@;
 }
-
-($VERSION) = q $Revision: 2.110 $ =~ /[\d.]+/g;
 
 my %uris;
 
@@ -109,85 +110,6 @@ Vaha-Sipila, A.: I<URLs for Telephone Calls>. April 2000.
 
 =back
 
-=head1 HISTORY
-
- $Log: URI.pm,v $
- Revision 2.110  2008/05/23 21:30:09  abigail
- Changed email address
-
- Revision 2.109  2008/05/23 21:28:01  abigail
- Changed license
-
- Revision 2.108  2004/06/09 21:45:24  abigail
- POD
-
- Revision 2.107  2003/03/25 23:20:30  abigail
- pop and prospero URIs
-
- Revision 2.106  2003/03/12 22:28:57  abigail
- WAIS URIs
-
- Revision 2.105  2003/02/21 14:49:41  abigail
- Gopher added
-
- Revision 2.104  2003/02/11 14:10:25  abigail
- Changed 'nntp' to 'NNTP'
-
- Revision 2.103  2003/02/10 21:18:07  abigail
- Move most of the code into separate files. One file per URI, and
- one file per RFC.
-
- Revision 2.102  2003/02/07 15:24:17  abigail
- telnet URIs
-
- Revision 2.101  2003/02/01 22:55:31  abigail
- Changed Copyright years
-
- Revision 2.100  2003/01/21 23:19:40  abigail
- The whole world understands RCS/CVS version numbers, that 1.9 is an
- older version than 1.10. Except CPAN. Curse the idiot(s) who think
- that version numbers are floats (in which universe do floats have
- more than one decimal dot?).
- Everything is bumped to version 2.100 because CPAN couldn't deal
- with the fact one file had version 1.10.
-
- Revision 1.11  2003/01/21 22:59:33  abigail
- Fixed small errors with  and
-
- Revision 1.10  2003/01/17 13:17:15  abigail
- Fixed '$toplabel' and '$domainlabel'; they were both subexpressions
- of the form: A|AB. Which passed the tests because most tests anchor
- the regex at the beginning and end.
-
- Revision 1.9  2003/01/01 23:00:54  abigail
- TV URIs
-
- Revision 1.8  2002/08/27 16:56:27  abigail
- Support for fax URIs.
-
- Revision 1.7  2002/08/06 14:44:07  abigail
- Local phone numbers can have future extensions as well.
-
- Revision 1.6  2002/08/06 13:18:03  abigail
- Cosmetic changes
-
- Revision 1.5  2002/08/06 13:16:27  abigail
- Added $RE{URI}{tel}{nofuture}
-
- Revision 1.4  2002/08/06 00:03:30  abigail
- Added $RE{URI}{tel}
-
- Revision 1.3  2002/08/04 22:51:35  abigail
- Added FTP URIs.
-
- Revision 1.2  2002/07/25 22:37:44  abigail
- Added 'use strict'.
- Added 'no_defaults' to 'use Regex::Common' to prevent loading of all
- defaults.
-
- Revision 1.1  2002/07/25 19:56:07  abigail
- Modularizing Regexp::Common.
-
 =head1 SEE ALSO
 
 L<Regexp::Common> for a general description of how to use this interface.
@@ -207,9 +129,9 @@ Bound to be plenty.
 For a start, there are many common regexes missing.
 Send them in to I<regexp-common@abigail.be>.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

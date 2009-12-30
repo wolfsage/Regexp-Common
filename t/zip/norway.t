@@ -2,14 +2,12 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common qw /RE_zip_Norway/;
 use t::Common qw /run_new_tests cross pdd dd a/;
 
 use warnings;
 
-($VERSION) = q $Revision: 2.104 $ =~ /[\d.]+/;
 
 my $norway      = $RE {zip} {Norway};
 my $yes_prefix  = $RE {zip} {Norway} {-prefix  => 'yes'};
@@ -116,22 +114,3 @@ run_new_tests tests        => \@tests,
 ;
 
 __END__
-
-=pod
-
- $Log: norway.t,v $
- Revision 2.104  2008/05/26 17:05:47  abigail
- use warnings
-
- Revision 2.103  2005/01/01 16:36:47  abigail
- Renamed 'version' option of 'run_new_tests' to 'version_from'
-
- Revision 2.102  2004/12/28 23:09:15  abigail
- Testing subs as well
-
- Revision 2.101  2004/12/14 23:13:17  abigail
- Minor changes because Common.pm got smarter
-
- Revision 2.100  2004/06/09 21:32:41  abigail
- Initial checkin
-

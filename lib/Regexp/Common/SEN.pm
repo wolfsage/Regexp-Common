@@ -1,17 +1,11 @@
-# $Id: SEN.pm,v 2.104 2008/05/23 21:30:09 abigail Exp $
-
 package Regexp::Common::SEN;
-
-use strict;
-local $^W = 1;
 
 use Regexp::Common qw /pattern clean no_defaults/;
 
-use vars qw /$VERSION @EXPORT_OK @ISA/;
+use strict;
+use warnings;
 
-($VERSION) = q $Revision: 2.104 $ =~ /[\d.]+/g;
-
-=pod
+=begin does_not_exist
 
 sub par11 {
     my $string = shift;
@@ -23,6 +17,7 @@ sub par11 {
     !($sum % 11)
 }
 
+=end does_not_exist
 =cut
 
 # http://www.ssa.gov/history/ssn/geocard.html
@@ -36,7 +31,7 @@ pattern name   => [qw /SEN USA SSN -sep=-/],
         },
         ;
 
-=for nobody
+=begin does_not_exist
 
 It's not clear whether this is the right checksum.
 
@@ -50,6 +45,7 @@ pattern name   => [qw /SEN Netherlands SoFi/],
         }
         ;
 
+=end does_not_exist
 =cut
 
 1;
@@ -112,26 +108,6 @@ captures the third group of digits (the serial number).
 
 =back
 
-=head1 HISTORY
-
- $Log: SEN.pm,v $
- Revision 2.104  2008/05/23 21:30:09  abigail
- Changed email address
-
- Revision 2.103  2008/05/23 21:28:01  abigail
- Changed license
-
- Revision 2.102  2005/01/02 01:17:48  abigail
- - Removed 'use Carp', as we aren't using it.
- - Outcommented unused 'par11' function. Ought to be in _support.pm anyway.
-
- Revision 2.101  2004/06/09 21:52:14  abigail
- Force 2.101 version
-
- Revision 2.1  2004/06/09 21:50:14  abigail
- Initial checkin
-
-
 =head1 SEE ALSO
 
 L<Regexp::Common> for a general description of how to use this interface.
@@ -151,9 +127,9 @@ Bound to be plenty.
 For a start, there are many common regexes missing.
 Send them in to I<regexp-common@abigail.be>.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

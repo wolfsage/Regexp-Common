@@ -1,14 +1,9 @@
-# $Id: profanity.pm,v 2.106 2008/05/23 21:30:09 abigail Exp $
-
 package Regexp::Common::profanity;
 
-use strict;
-local $^W = 1;
-
 use Regexp::Common qw /pattern clean no_defaults/;
-use vars qw /$VERSION/;
 
-($VERSION) = q $Revision: 2.106 $ =~ /[\d.]+/g;
+use strict;
+use warnings;
 
 my $profanity = '(?:cvff(?:\\ gnxr|\\-gnxr|gnxr|r(?:ef|[feq])|vat|l)?|dhvzf?|fuvg(?:g(?:r(?:ef|[qe])|vat|l)|r(?:ef|[fqel])|vat|[fr])?|g(?:heqf?|jngf?)|jnax(?:r(?:ef|[eq])|vat|f)?|n(?:ef(?:r(?:\\ ubyr|\\-ubyr|ubyr|[fq])|vat|r)|ff(?:\\ ubyrf?|\\-ubyrf?|rq|ubyrf?|vat))|o(?:hyy(?:\\ fuvg(?:g(?:r(?:ef|[qe])|vat)|f)?|\\-fuvg(?:g(?:r(?:ef|[qe])|vat)|f)?|fuvg(?:g(?:r(?:ef|[qe])|vat)|f)?)|ybj(?:\\ wbof?|\\-wbof?|wbof?))|p(?:bpx(?:\\ fhpx(?:ref?|vat)|\\-fhpx(?:ref?|vat)|fhpx(?:ref?|vat))|enc(?:c(?:r(?:ef|[eq])|vat|l)|f)?|h(?:agf?|z(?:vat|zvat|f)))|qvpx(?:\\ urnq|\\-urnq|rq|urnq|vat|yrff|f)|s(?:hpx(?:rq|vat|f)?|neg(?:r[eq]|vat|[fl])?|rygpu(?:r(?:ef|[efq])|vat)?)|un(?:eq[\\-\\ ]?ba|ys(?:\\ n[fe]|\\-n[fe]|n[fe])frq)|z(?:bgure(?:\\ shpx(?:ref?|vat)|\\-shpx(?:ref?|vat)|shpx(?:ref?|vat))|hgu(?:n(?:\\ shpx(?:ref?|vat|[nnn])|\\-shpx(?:ref?|vat|[nnn])|shpx(?:ref?|vat|[nnn]))|re(?:\\ shpx(?:ref?|vat)|\\-shpx(?:ref?|vat)|shpx(?:ref?|vat)))|reqr?))';
 
@@ -83,41 +78,6 @@ captures the entire word
 
 =back
 
-=head1 HISTORY
-
- $Log: profanity.pm,v $
- Revision 2.106  2008/05/23 21:30:09  abigail
- Changed email address
-
- Revision 2.105  2008/05/23 21:28:01  abigail
- Changed license
-
- Revision 2.104  2003/07/04 13:34:05  abigail
- Fixed assignment to
-
- Revision 2.103  2003/02/11 10:23:07  abigail
- Small fix
-
- Revision 2.102  2003/02/11 09:45:09  abigail
- Added
-
- Revision 2.101  2003/02/01 22:55:31  abigail
- Changed Copyright years
-
- Revision 2.100  2003/01/21 23:19:40  abigail
- The whole world understands RCS/CVS version numbers, that 1.9 is an
- older version than 1.10. Except CPAN. Curse the idiot(s) who think
- that version numbers are floats (in which universe do floats have
- more than one decimal dot?).
- Everything is bumped to version 2.100 because CPAN couldn't deal
- with the fact one file had version 1.10.
-
- Revision 1.2  2002/08/05 12:16:59  abigail
- Fixed 'Regex::' and 'Rexexp::' typos to 'Regexp::' (Found my Mike Castle).
-
- Revision 1.1  2002/07/28 21:41:07  abigail
- Split off from Regexp::Common.
-
 =head1 SEE ALSO
 
 L<Regexp::Common> for a general description of how to use this interface.
@@ -137,9 +97,9 @@ Bound to be plenty.
 For a start, there are many common regexes missing.
 Send them in to I<regexp-common@abigail.be>.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

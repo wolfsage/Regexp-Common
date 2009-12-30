@@ -6,7 +6,6 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common;
 use t::Common;
@@ -39,11 +38,3 @@ foreach my $base (@correct_bases) {
 
 
 __END__
-
- $Log: number.t,v $
- Revision 2.101  2005/03/15 23:53:27  abigail
- Force version
-
- Revision 2.1  2005/03/15 23:52:56  abigail
- New file
-

@@ -1,17 +1,12 @@
-# $Id: http.pm,v 2.103 2008/05/23 21:30:10 abigail Exp $
-
 package Regexp::Common::URI::http;
-
-use strict;
-local $^W = 1;
 
 use Regexp::Common               qw /pattern clean no_defaults/;
 use Regexp::Common::URI          qw /register_uri/;
 use Regexp::Common::URI::RFC2396 qw /$host $port $path_segments $query/;
 
-use vars qw /$VERSION/;
+use strict;
+use warnings;
 
-($VERSION) = q $Revision: 2.103 $ =~ /[\d.]+/g;
 
 my $http_uri = "(?k:(?k:http)://(?k:$host)(?::(?k:$port))?"           .
                "(?k:/(?k:(?k:$path_segments)(?:[?](?k:$query))?))?)";
@@ -115,22 +110,6 @@ June 1999.
 
 =back
 
-=head1 HISTORY
-
- $Log: http.pm,v $
- Revision 2.103  2008/05/23 21:30:10  abigail
- Changed email address
-
- Revision 2.102  2008/05/23 21:28:02  abigail
- Changed license
-
- Revision 2.101  2004/06/09 21:42:48  abigail
- POD nits
-
- Revision 2.100  2003/02/10 21:06:41  abigail
- http URI
-
-
 =head1 SEE ALSO
 
 L<Regexp::Common::URI> for other supported URIs.
@@ -147,9 +126,9 @@ This package is maintained by Abigail S<(I<regexp-common@abigail.be>)>.
 
 Bound to be plenty.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

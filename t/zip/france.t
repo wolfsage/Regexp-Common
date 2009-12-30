@@ -2,13 +2,11 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common;
 
 use warnings;
 
-($VERSION) = q $Revision: 2.107 $ =~ /[\d.]+/;
 
 sub passes;
 sub failures;
@@ -60,8 +58,7 @@ my $max  = 1;
    $max += @failures * @tests;
 print "1..$max\n";
 
-print "not " unless defined $Regexp::Common::zip::VERSION;
-print "ok ", ++ $count, " - Regexp::Common::zip::VERSION\n";
+print "ok ", ++ $count, "\n";
 
 
 sub run_test {
@@ -211,32 +208,3 @@ sub failures {
 }
 
 __END__
-
-
-=pod
-
- $Log: france.t,v $
- Revision 2.107  2008/05/26 19:31:19  abigail
- Changed tests
-
- Revision 2.106  2008/05/26 17:05:47  abigail
- use warnings
-
- Revision 2.105  2003/02/09 13:31:12  abigail
- Moved to france.t
-
- Revision 2.104  2003/02/08 14:58:57  abigail
- Doc patch
-
- Revision 2.103  2003/02/05 09:54:15  abigail
- Removed 'use Config'
-
- Revision 2.102  2003/02/02 03:11:20  abigail
- File moved to t/zip
-
- Revision 2.101  2003/02/01 22:31:16  abigail
- Added some tests
-
- Revision 2.100  2003/01/23 02:14:22  abigail
- Tests for French postal codes. Initial checkin.
-

@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 use strict;
-use vars qw /$VERSION/;
 use lib "blib/lib";
 
 use Regexp::Common qw /RE_comment_ALL/;
@@ -11,7 +10,6 @@ use warnings;
 
 BEGIN {$^W = 0 if $[ < 5.006;}
 
-($VERSION) = q $Revision: 2.102 $ =~ /[\d.]+/;
 
 
 # 1. tokens for single line comments.
@@ -188,14 +186,3 @@ run_new_tests tests        => \@tests,
 
 
 __END__
-
- $Log: single_or_multiline.t,v $
- Revision 2.102  2008/05/26 17:05:17  abigail
- use warnings
-
- Revision 2.101  2005/01/01 16:41:10  abigail
- Renamed 'version' argument of 'run_new_tests' to 'version_from'
-
- Revision 2.100  2004/12/28 23:01:05  abigail
- Moved tests out of t/test_comment.t
-

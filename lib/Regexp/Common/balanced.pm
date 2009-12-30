@@ -1,19 +1,15 @@
 package Regexp::Common::balanced; {
 
-use strict;
-local $^W = 1;
-
-use vars qw /$VERSION/;
-($VERSION) = q $Revision: 2.103 $ =~ /[\d.]+/g;
-
 use Regexp::Common qw /pattern clean no_defaults/;
+
+use strict;
+use warnings;
 
 my %closer = ( '{'=>'}', '('=>')', '['=>']', '<'=>'>' );
 my $count = -1;
 my %cache;
 
 sub nested {
-    local $^W = 1;
     my ($start, $finish) = @_;
 
     return $Regexp::Common::balanced [$cache {$start} {$finish}]
@@ -161,49 +157,6 @@ captures the entire expression
 
 =back
 
-=head1 HISTORY
-
- $Log: balanced.pm,v $
- Revision 2.103  2008/05/23 21:30:09  abigail
- Changed email address
-
- Revision 2.102  2008/05/23 21:28:01  abigail
- Changed license
-
- Revision 2.101  2003/02/01 22:55:31  abigail
- Changed Copyright years
-
- Revision 2.100  2003/01/21 23:19:40  abigail
- The whole world understands RCS/CVS version numbers, that 1.9 is an
- older version than 1.10. Except CPAN. Curse the idiot(s) who think
- that version numbers are floats (in which universe do floats have
- more than one decimal dot?).
- Everything is bumped to version 2.100 because CPAN couldn't deal
- with the fact one file had version 1.10.
-
- Revision 1.6  2002/08/20 15:20:48  abigail
- Documented -begin and -end
-
- Revision 1.5  2002/08/08 23:57:33  abigail
- Added HISTORY section.
-
- Revision 1.4  2002/08/08 23:53:54  abigail
- Reworked and extended $RE{balanced}. It now takes multiple arbitrary
- length delimiters. -parens is just a short-cut for some of the common,
- simpler cases.
-
- Revision 1.3  2002/08/05 12:16:58  abigail
- Fixed 'Regex::' and 'Rexexp::' typos to 'Regexp::'
- (Found my Mike Castle).
-
- Revision 1.2  2002/07/25 22:37:44  abigail
- Added 'use strict'.
- Added 'no_defaults' to 'use Regexp::Common' to prevent loaded of all
- defaults.
-
- Revision 1.1  2002/07/25 22:14:44  abigail
- Factored out from Regexp::Common.
-
 =head1 SEE ALSO
 
 L<Regexp::Common> for a general description of how to use this interface.
@@ -223,9 +176,9 @@ Bound to be plenty.
 For a start, there are many common regexes missing.
 Send them in to I<regexp-common@abigail.be>.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

@@ -1,14 +1,9 @@
-# $Id: delimited.pm,v 2.106 2008/05/23 21:30:09 abigail Exp $
-
 package Regexp::Common::delimited;
 
-use strict;
-local $^W = 1;
-
 use Regexp::Common qw /pattern clean no_defaults/;
-use vars qw /$VERSION/;
 
-($VERSION) = q $Revision: 2.106 $ =~ /[\d.]+/g;
+use strict;
+use warnings;
 
 sub gen_delimited {
 
@@ -151,9 +146,9 @@ Bound to be plenty.
 For a start, there are many common regexes missing.
 Send them in to I<regexp-common@abigail.be>.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

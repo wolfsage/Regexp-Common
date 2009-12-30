@@ -2,7 +2,6 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common;
 use t::Common;
@@ -10,7 +9,6 @@ use t::Common;
 $^W    = 1;
 $DEBUG = 1;
 
-($VERSION) = q $Revision: 2.101 $ =~ /[\d.]+/;
 
 sub create_parts;
 
@@ -112,11 +110,3 @@ sub filter {
 
 
 __END__
-
- $Log: prospero.t,v $
- Revision 2.101  2008/05/23 21:32:07  abigail
- Changed domain name
-
- Revision 2.100  2003/03/25 23:02:51  abigail
- Tests for prospero URIs.
-

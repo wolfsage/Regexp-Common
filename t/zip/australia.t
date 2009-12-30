@@ -2,12 +2,10 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common;
 use warnings;
 
-($VERSION) = q $Revision: 2.106 $ =~ /[\d.]+/;
 
 sub passes;
 sub failures;
@@ -58,9 +56,7 @@ my $max  = 1;
    $max += @failures * @tests;
 print "1..$max\n";
 
-print "not " unless defined $Regexp::Common::zip::VERSION;
-print "ok ", ++ $count, " - Regexp::Common::zip::VERSION\n";
-
+print "ok ", ++ $count, "\n";
 
 sub run_test {
     my ($name, $re, $should_match) = @_;
@@ -219,26 +215,3 @@ sub failures {
 }
 
 __END__
-
-
-=pod
-
- $Log: australia.t,v $
- Revision 2.106  2008/05/26 17:05:47  abigail
- use warnings
-
- Revision 2.105  2004/06/09 21:34:18  abigail
- Prevent test from hanging
-
- Revision 2.104  2003/08/01 11:31:58  abigail
- Added Australian postal code '0909'
-
- Revision 2.103  2003/02/09 13:30:36  abigail
- Moved to australia.t
-
- Revision 2.102  2003/02/05 09:54:15  abigail
- Removed 'use Config'
-
- Revision 2.101  2003/02/01 22:11:15  abigail
- Initial checkin
-

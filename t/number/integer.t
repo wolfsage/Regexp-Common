@@ -2,7 +2,6 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common qw /RE_num_int/;
 use t::Common qw /run_new_tests aa sample/;
@@ -325,14 +324,3 @@ run_new_tests  targets      => \%targets,
 
 
 __END__
-
-  $Log: integer.t,v $
-  Revision 2.102  2008/05/26 17:06:05  abigail
-  use warnings
-
-  Revision 2.101  2005/03/15 23:54:11  abigail
-  New file
-
-  Revision 2.100  2005/03/15 23:50:34  abigail
-  New file
-

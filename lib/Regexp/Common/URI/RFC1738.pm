@@ -1,18 +1,15 @@
-# $Id: RFC1738.pm,v 2.106 2008/05/23 21:30:10 abigail Exp $
-
 package Regexp::Common::URI::RFC1738;
-
-use strict;
-local $^W = 1;
 
 use Regexp::Common qw /pattern clean no_defaults/;
 
-use vars qw /$VERSION @EXPORT @EXPORT_OK %EXPORT_TAGS @ISA/;
+use strict;
+use warnings;
+
+use vars qw /@EXPORT @EXPORT_OK %EXPORT_TAGS @ISA/;
 
 use Exporter ();
 @ISA = qw /Exporter/;
 
-($VERSION) = q $Revision: 2.106 $ =~ /[\d.]+/g;
 
 my %vars;
 
@@ -55,9 +52,9 @@ $reserved          =  '[;/?:@&=]';
 $hex               =  '[a-fA-F0-9]';
 $escape            =  "(?:%$hex$hex)";
 $uchar             =  "(?:$unreserved|$escape)";
-$uchars            =  "(?:(?:$unreserved+|$escape)*)";
+$uchars            =  "(?:(?:$unreserved|$escape)*)";
 $xchar             =  "(?:[$unreserved_range;/?:\@&=]|$escape)";
-$xchars            =  "(?:(?:[$unreserved_range;/?:\@&=]+|$escape)*)";
+$xchars            =  "(?:(?:[$unreserved_range;/?:\@&=]|$escape)*)";
 
 # Connection related stuff.
 $port              =  "(?:$digits)";
@@ -68,37 +65,41 @@ $hostname          =  "(?:(?:$domainlabel\[.])*$toplabel)";
 $host              =  "(?:$hostname|$hostnumber)";
 $hostport          =  "(?:$host(?::$port)?)";
 
-$user              =  "(?:(?:[$unreserved_range;?&=]+|$escape)*)";
-$password          =  "(?:(?:[$unreserved_range;?&=]+|$escape)*)";
+$user              =  "(?:(?:[$unreserved_range;?&=]|$escape)*)";
+$password          =  "(?:(?:[$unreserved_range;?&=]|$escape)*)";
 $login             =  "(?:(?:$user(?::$password)?\@)?$hostport)";
 
 # Parts (might require more if we add more URIs).
 
 # FTP/file
-$fsegment          =  "(?:(?:[$unreserved_range:\@&=]+|$escape)*)";
+$fsegment          =  "(?:(?:[$unreserved_range:\@&=]|$escape)*)";
 $fpath             =  "(?:$fsegment(?:/$fsegment)*)";
 
 # NNTP/news.
 $group             =  "(?:$alpha\[-A-Za-z0-9.+_]*)";
-$article           =  "(?:(?:[$unreserved_range;/?:&=]+|$escape)+" .
+$article           =  "(?:(?:[$unreserved_range;/?:&=]|$escape)+" .
                       '@' . "$host)";
 $grouppart         =  "(?:[*]|$article|$group)"; # It's important that
                                                  # $article goes before
                                                  # $group.
 
 # WAIS.
-$search            =  "(?:(?:[$unreserved_range;:\@&=]+|$escape)*)";
+$search            =  "(?:(?:[$unreserved_range;:\@&=]|$escape)*)";
 $database          =  $uchars;
 $wtype             =  $uchars;
 $wpath             =  $uchars;
 
 # prospero
-$psegment          =  "(?:(?:[$unreserved_range?:\@&=]+|$escape)*)";
-$fieldname         =  "(?:(?:[$unreserved_range?:\@&]+|$escape)*)";
-$fieldvalue        =  "(?:(?:[$unreserved_range?:\@&]+|$escape)*)";
+$psegment          =  "(?:(?:[$unreserved_range?:\@&=]|$escape)*)";
+$fieldname         =  "(?:(?:[$unreserved_range?:\@&]|$escape)*)";
+$fieldvalue        =  "(?:(?:[$unreserved_range?:\@&]|$escape)*)";
 $fieldspec         =  "(?:;$fieldname=$fieldvalue)";
 $ppath             =  "(?:$psegment(?:/$psegment)*)";
 
+#
+# The various '(?:(?:[$unreserved_range ...]|$escape)*)' above need
+# some loop unrolling to speed up the match.
+#
 
 1;
 
@@ -131,31 +132,6 @@ Locators (URL)>. December 1994.
 
 =back
 
-=head1 HISTORY
-
- $Log: RFC1738.pm,v $
- Revision 2.106  2008/05/23 21:30:10  abigail
- Changed email address
-
- Revision 2.105  2008/05/23 21:28:02  abigail
- Changed license
-
- Revision 2.104  2003/03/25 23:09:59  abigail
- Prospero definitions
-
- Revision 2.103  2003/03/12 22:29:21  abigail
- Small fixes
-
- Revision 2.102  2003/02/21 14:47:48  abigail
- Added  and WAIS related variables
-
- Revision 2.101  2003/02/11 11:14:50  abigail
- Fixed $grouppart
-
- Revision 2.100  2003/02/10 21:03:54  abigail
- Definitions of RFC 1738
-
-
 =head1 AUTHOR
 
 Abigail S<(I<regexp-common@abigail.be>)>.
@@ -164,9 +140,9 @@ Abigail S<(I<regexp-common@abigail.be>)>.
 
 Bound to be plenty.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

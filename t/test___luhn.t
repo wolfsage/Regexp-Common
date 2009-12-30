@@ -2,14 +2,12 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common;
 use Regexp::Common::_support qw /luhn/;
 
 use warnings;
 
-($VERSION) = q $Revision: 2.101 $ =~ /[\d.]+/;
 
 my $TESTS = 100;
 
@@ -42,14 +40,11 @@ foreach (1 .. $TESTS) {
 
 
 
-my $total = @good + @bad + 1;
+my $total = @good + @bad;
 
 print "1..$total\n";
 
-my $c = 1;
-print "not " unless defined $Regexp::Common::_support::VERSION &&
-                            $Regexp::Common::_support::VERSION =~ /^\d+\.\d+$/;
-print "ok $c\n";
+my $c = 0;
 
 foreach my $g (@good) {
     print "not " unless luhn $g;
@@ -63,13 +58,3 @@ foreach my $b (@bad) {
 
 
 __END__
-
-=pod
-
- $Log: test___luhn.t,v $
- Revision 2.101  2008/05/26 17:07:26  abigail
- use warnings
-
- Revision 2.100  2004/07/01 14:48:08  abigail
- Initial version
-

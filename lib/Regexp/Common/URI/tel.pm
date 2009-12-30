@@ -1,18 +1,13 @@
-# $Id: tel.pm,v 2.102 2008/05/23 21:30:10 abigail Exp $
-
 package Regexp::Common::URI::tel;
-
-use strict;
-local $^W = 1;
 
 use Regexp::Common               qw /pattern clean no_defaults/;
 use Regexp::Common::URI          qw /register_uri/;
 use Regexp::Common::URI::RFC2806 qw /$telephone_subscriber 
                                      $telephone_subscriber_no_future/;
 
-use vars qw /$VERSION/;
+use strict;
+use warnings;
 
-($VERSION) = q $Revision: 2.102 $ =~ /[\d.]+/g;
 
 my $tel_scheme  = 'tel';
 my $tel_uri     = "(?k:(?k:$tel_scheme):(?k:$telephone_subscriber))";
@@ -99,19 +94,6 @@ Vaha-Sipila, A.: I<URLs for Telephone Calls>. April 2000.
 
 =back
 
-=head1 HISTORY
-
- $Log: tel.pm,v $
- Revision 2.102  2008/05/23 21:30:10  abigail
- Changed email address
-
- Revision 2.101  2008/05/23 21:28:02  abigail
- Changed license
-
- Revision 2.100  2003/02/10 21:06:42  abigail
- tel URI
-
-
 =head1 SEE ALSO
 
 L<Regexp::Common::URI> for other supported URIs.
@@ -128,9 +110,9 @@ This package is maintained by Abigail S<(I<regexp-common@abigail.be>)>.
 
 Bound to be plenty.
 
-=head1 COPYRIGHT
+=head1 LICENSE and COPYRIGHT
 
-This software is Copyright (c) 2001 - 2008, Damian Conway and Abigail.
+This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
 
 This module is free software, and maybe used under any of the following
 licenses:

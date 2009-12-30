@@ -2,14 +2,12 @@
 
 use strict;
 use lib  qw {blib/lib};
-use vars qw /$VERSION/;
 
 use Regexp::Common;
 use t::Common;
 
 $^W    = 1;
 
-($VERSION) = q $Revision: 2.102 $ =~ /[\d.]+/;
 
 sub create_parts;
 
@@ -122,17 +120,3 @@ sub filter {
 
 
 __END__
-
- $Log: wais.t,v $
- Revision 2.102  2008/05/23 21:32:07  abigail
- Changed domain name
-
- Revision 2.101  2003/08/01 11:28:10  abigail
- Fixed a warning
-
- Revision 2.100  2003/03/12 22:23:14  abigail
- Forced 2.100 revision
-
- Revision 2.1  2003/03/12 22:22:26  abigail
- WAIS URIs.
-
