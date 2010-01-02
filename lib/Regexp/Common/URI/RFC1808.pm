@@ -13,6 +13,9 @@ BEGIN {
 use strict;
 use warnings;
 
+use vars qw /$VERSION/;
+$VERSION = '2010010201';
+
 use vars qw /@EXPORT @EXPORT_OK %EXPORT_TAGS @ISA/;
 
 use Exporter ();

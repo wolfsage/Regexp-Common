@@ -5,6 +5,9 @@ use Regexp::Common qw /pattern clean no_defaults/;
 use strict;
 use warnings;
 
+use vars qw /$VERSION/;
+$VERSION = '2010010201';
+
 pattern name   => [qw (ws crop)],
         create => '(?:^\s+|\s+$)',
         subs   => sub {$_[1] =~ s/^\s+//; $_[1] =~ s/\s+$//;}

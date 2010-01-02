@@ -7,6 +7,9 @@ use Regexp::Common::URI::RFC1738 qw /$host $fpath/;
 use strict;
 use warnings;
 
+use vars qw /$VERSION/;
+$VERSION = '2010010201';
+
 
 my $scheme = 'file';
 my $uri    = "(?k:(?k:$scheme)://(?k:(?k:(?:$host|localhost)?)" .

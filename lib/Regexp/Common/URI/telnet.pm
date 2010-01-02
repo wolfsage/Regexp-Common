@@ -7,6 +7,9 @@ use Regexp::Common::URI::RFC1738 qw /$user $password $host $port/;
 use strict;
 use warnings;
 
+use vars qw /$VERSION/;
+$VERSION = '2010010201';
+
 
 my $telnet_uri = "(?k:(?k:telnet)://(?:(?k:(?k:$user)(?::(?k:$password))?)\@)?" 
                . "(?k:(?k:$host)(?::(?k:$port))?)(?k:/)?)";
